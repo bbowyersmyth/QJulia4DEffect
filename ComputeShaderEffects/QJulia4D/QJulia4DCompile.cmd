@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Windows Kits\8.1\bin\x86\fxc.exe" /T cs_4_0 "D:\Projects\QJulia4DEffect\ComputeShaderEffects\QJulia4D\QJulia4D.hlsl" /E CS_QJulia4D /Fo"D:\Projects\QJulia4DEffect\ComputeShaderEffects\Shaders\QJulia4D.fx"
