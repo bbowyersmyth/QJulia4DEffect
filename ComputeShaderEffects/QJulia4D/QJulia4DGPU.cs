@@ -89,7 +89,6 @@ namespace QJulia4DEffect.QJulia4D
         {
             MaximumRegionWidth = 8024;
             MaximumRegionHeight = 8024;
-            //CustomRegionHandling = true;
         }
 
         protected override ControlInfo OnCreateConfigUI(PropertyCollection props)
@@ -218,23 +217,12 @@ namespace QJulia4DEffect.QJulia4D
                             constBuffer,
                             (int)Math.Ceiling(rect.Width / 64.0),
                             rect.Height);
-                        SharpDX.Direct3D11.Buffer copyBuf = CreateAndCopyBuffer(device, context, resultBuffer);
-                        //SharpDX.DataStream ds;
-                        //context.MapSubresource(copyBuf,
-                        //    0,
-                        //    MapMode.Read,
-                        //    MapFlags.None,
-                        //    out ds);
 
+                        SharpDX.Direct3D11.Buffer copyBuf = CreateAndCopyBuffer(device, context, resultBuffer);
                         SharpDX.DataBox mappedResource = context.MapSubresource(copyBuf, 0, MapMode.Read, MapFlags.None);
-                        
-                        // Copy to destination pixels
-                        //CopyStreamToSurface(ds, dst, rect);
                         CopyStreamToSurface(mappedResource, dst, rect);
                         context.UnmapSubresource(copyBuf, 0);
 
-                        //ds.Close();
-                        //ds.Dispose();
                         copyBuf.Dispose();
                     }
                 }
